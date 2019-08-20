@@ -1,0 +1,60 @@
+import React, { Component } from "react";
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse } from "mdbreact";
+class SideNavPage extends Component {
+
+  state = {
+    modal5: false,
+    
+  }
+
+
+  //popops login fonction 
+  toggleCollapse = collapseID => () =>
+    this.setState(prevState => ({
+      collapseID: prevState.collapseID !== collapseID ? collapseID : ""
+    }));
+  toggle = nr => () => {
+    let modalNumber = "modal" + nr;
+    this.setState({
+      [modalNumber]: !this.state[modalNumber]
+    });
+  }
+
+
+  render() {
+  
+  
+    return (
+      <div>
+        <MDBNavbar color="red" dark expand="md" style={{ marginTop: "1px" }} id="navbar" className="fixed-top" scrolling >
+          <MDBNavbarBrand>
+            {/* <img src="logo.png" alt="Logo" id="logoimage"/> */}
+          </MDBNavbarBrand>
+          <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
+          <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
+            <MDBNavbarNav left>
+            <MDBNavItem>
+                <MDBNavLink to="" className="nav-header">A propos</MDBNavLink>
+              </MDBNavItem>
+              <MDBNavItem>
+                <MDBNavLink to="" className="nav-header">Artistes</MDBNavLink>
+              </MDBNavItem>
+              <MDBNavItem>
+                <MDBNavLink to="" className="nav-header">Chansons</MDBNavLink>
+              </MDBNavItem>
+
+            </MDBNavbarNav>
+            <MDBNavbarNav right>
+              <MDBNavItem>
+                <MDBNavLink to="/login" className="nav-header" >Rechercher</MDBNavLink>
+              </MDBNavItem>
+            </MDBNavbarNav>
+          </MDBCollapse>
+        </MDBNavbar>
+
+      </div>
+    );
+  }
+}
+
+export default SideNavPage;
