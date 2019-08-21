@@ -32,12 +32,10 @@ handleUploadImage(ev) {
   const data = new FormData();
     data.append('photo_produit', this.uploadInput.files[0]);
     data.append('titre',this.state.titre);
+    data.append('artiste',this.state.artiste);
     data.append('description',this.state.description);
     data.append('date',this.state.date);
-    data.append('horaire',this.state.horaire);
-    data.append('duree',this.state.duree);
-    data.append('place_dispo',this.state.place_dispo);
-    data.append('place_reserve',this.state.place_reserve);
+    data.append('genre',this.state.genre);
     data.append('prix',this.state.prix);
 
   fetch('http://localhost:8080/atelier/'+ this.props.match.params.id, {
@@ -74,6 +72,14 @@ handleUploadImage(ev) {
                      success="right" value={this.state.value}  onChange={this.onChange} name="titre"
                      required
                    />
+                    <MDBInput
+                     label="Artiste"
+                     group
+                     type="text"
+                     validate
+                     success="right" value={this.state.value} onChange={this.onChange}  name="artiste"
+                     required
+                   />
                    <MDBInput
                      label="Déscription"
                      group
@@ -90,40 +96,17 @@ handleUploadImage(ev) {
                      success="right" value={this.state.value} onChange={this.onChange} name="date"
                      required
                    />
-                    <MDBInput
-                     label="horaire de debut"
-                     group
-                     type="time"
-                     validate
-                     success="right" value={this.state.value} onChange={this.onChange}  name="horaire"
-                     required
-                   />
-                    <MDBInput
-                     label="Duree de l'atelier"
-                     group
-                     type="number"
-                     validate
-                     success="right" value={this.state.value} onChange={this.onChange}  name="duree"
-                     required
-                   />
-                    <MDBInput
-                     label="Nombre de place disponible"
-                     group
-                     type="number"
-                     validate
-                     success="right" value={this.state.value} onChange={this.onChange}  name="place_dispo"
-                     required
-                   />
-                    <MDBInput
-                     label="Nombre de place reservé"
-                     group
-                     type="number"
-                     validate
-                     success="right" value={this.state.value} onChange={this.onChange}  name="place_reserve"
-                     required
-                   />
                    <MDBInput
-                     label="Prix de l'atelier (€)"
+                     label="genre"
+                     group
+                     type="text"
+                     validate
+                     success="right" value={this.state.value} onChange={this.onChange}  name="genre"
+                     required
+                   />
+                    
+                   <MDBInput
+                     label="Prix de l'album (Ar)"
                      group
                      type="text"
                      validate

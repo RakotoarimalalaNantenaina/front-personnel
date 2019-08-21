@@ -28,7 +28,7 @@ class SideNavPage extends Component {
       <div>
         <MDBNavbar color="red" dark expand="md" style={{ marginTop: "1px" }} id="navbar" className="fixed-top" scrolling >
           <MDBNavbarBrand>
-            {/* <img src="logo.png" alt="Logo" id="logoimage"/> */}
+            <img src="logo.png" alt="Logo" id="logoimage"/>
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>

@@ -24,25 +24,22 @@ export default class Tableau extends Component {
             })
             .catch(function (error) {
                 console.log(error);
-            })
-           
+            })    
     }
 
     liste() {
         return <div>
             <div id="listecomponent">
-                    <h4 id="h4tableau">Ateliers  recents</h4>
+                    <h4 id="h4tableau">Albums recents</h4>
                 <table className="table table-striped table-bordered table-hover" id="table">
                     <thead>
                         <tr>
                             <th className="thtab">Images</th>
-                            <th className="thtab">Nom</th>
+                            <th className="thtab">Titre</th>
+                            <th className="thtab">Artiste</th>
                             <th className="thtab">Description</th>
                             <th className="thtab">Date</th>
-                            <th className="thtab">horaire de debut</th>
-                            <th className="thtab">Durée</th>
-                            <th className="thtab">place disponible</th>
-                            <th className="thtab">place reservé</th>
+                            <th className="thtab">genre</th>
                             <th className="thtab">Prix</th>
                             <th className="thtab">Actions</th>
                         </tr>
@@ -53,13 +50,11 @@ export default class Tableau extends Component {
                                 return <tr key={obj._id}>
                                     <td><img id="imagetab" width="100px" height="90px" src={'http://localhost:8080/atelier/'+obj.photo_produit} alt={obj.photo_produit}/></td>
                                     <td>{obj.titre}</td>
+                                    <td>{obj.artiste}</td>
                                     <td>{obj.description}</td>
                                     <td>{obj.date}</td>
-                                    <td>{obj.horaire}</td>
-                                    <td>{obj.duree}</td>
-                                    <td>{obj.place_dispo}</td>
-                                    <td>{obj.place_reserve}</td>
-                                    <td>{obj.prix}  €</td>
+                                    <td>{obj.genre}</td>
+                                    <td>{obj.prix}  Ar</td>
                                     <td> 
                                     <Link className="btn btn-primary" to={'/dashboard/atelier/'+obj._id}
  
@@ -85,7 +80,7 @@ export default class Tableau extends Component {
                                             })
                                         console.log(res.data)
                                     })
-                                    }}><i class="glyphicon glyphicon-minus-sign"></i>Desactiver</button>):(<button id="visual" onClick={(e)=>{
+                                    }}><i class="glyphicon glyphicon-minus-sign"></i>Masquer</button>):(<button id="visual" onClick={(e)=>{
                                         e.preventDefault()  
                                         axios.get("http://localhost:8080/afficheatelier/"+obj._id).then(res=>{
                                             axios.get('http://localhost:8080/atelier')
@@ -105,13 +100,13 @@ export default class Tableau extends Component {
                                     }
                                 )
 
-    }} className="btn btn-secondary" id="bottonactivez"><i class="glyphicon glyphicon-ok"></i>Activer</button>)}
+    }} className="btn btn-secondary" id="bottonactivez"><i class="glyphicon glyphicon-ok"></i>Publier</button>)}
 
                                    
 </td>
                                     
                                 </tr>
-                            })) : ('Aucun album a publier')
+                            })) : ('Aucun album à ajouter')
                         }
                     </tbody>
                 </table>
