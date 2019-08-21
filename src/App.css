@@ -5,7 +5,7 @@
     color: white;
 }
 #navbar {
-    background-color: #0a95a1  !important;
+    background-color: rgba(235, 52, 107, 0.945)  !important;
     margin-bottom: 5px !important;
     width: 98%;
     margin-left: 1%;
@@ -15,7 +15,9 @@
     font-weight: bold;
 }
 #header {
-    margin-top: 67px;
+    margin-top: 88px;
+    padding-bottom: 50px;
+    background-color: #d05c8c !important;
 }
 #boutton-inscrire {
     background-color: #f3671f !important;
@@ -55,6 +57,9 @@ td {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+#navbarmobile {
+    display: none;
+}
 #ajouter_boutton {
     height: 50px;
     line-height: 50%;
@@ -65,7 +70,7 @@ td {
 }
 #inscrire-btn {
     height: 50px;
-    background-color: #f3671f !important; 
+    background-color: rgb(179, 79, 121) !important; 
 }
 #bouton-connecter {
     height: 50px;
@@ -169,6 +174,9 @@ td {
 #okajout {
     background-color: #f3671f !important;
 }
+#bouttonajouter {
+    background-color: gray !important;
+}
 
 @media only screen and (max-width: 600px) {
    .wrapper {
@@ -178,51 +186,49 @@ td {
        display:
        inline-block;
    }
-   #ajoutercomponent {
-    display: initial;
-}
-    #navbarmobile {
-        display: block !important;
-    }
+  
     #carte {
         padding: 0px !important;
     }
-  }
 
-#ajoutercomponent {
-    display: none;
-}
-#listecomponent {
-    display: none;
-}
+    #navbarmobile {
+        display: block;
+    }
+  }
 #linkseconnecter {
     color: #d05c62;
 }
 #footer {
     height: 70px;
-    line-height: 35px;
-    background-color: #0a95a1;
+    line-height: 70px;
+    background-color: rgba(235, 52, 107, 0.945);
    
 }
 #spanfooter {
-    font-weight: bold
+    font-weight: bold;
+    line-height: 50%;
 }
 footer {
     height: 100px;
     width: 100%;
+    margin-top: 3px;
 }
 #footerdash {
     position: fixed;
     height: 70px;
-    line-height: 35px;
-    width: 100%;
+    line-height: 70px;
+    background-color: rgba(235, 52, 107, 0.945);
 }
 .zonetext2 {
-    width: 100px;
-    height: 200px;
+   width: 70% !important;
+   height: 50px !important;
+   margin-top: 10px;
+   padding-left: 10px;
+   border-radius: 10px;
 }
 #h2popups {
-    color: #f3671f !important;
+    color: #c03289c0 !important;
+    font-size: px;
 }
 #div1 {
      border: groove;
@@ -257,9 +263,7 @@ footer {
     line-height: 50%;
     border-radius: 15px;
 }
-#navbarmobile {
-    display: none;
-}
+
 #mobilegetatelier {
     display: none !important;
 }
@@ -270,7 +274,116 @@ footer {
 #btn-accueil {
    font-size: 20px;
    font-weight: bold;
+   color: white;
 }
 #btn-accueil:hover {
     color: #f3671f !important;
 }
+#listecomponent {
+    display: none;
+}
+
+/* contact */
+
+#logo {
+	width: auto;
+	height: 60px;
+}
+#header1 {
+	margin-top: 20px;
+}
+ul {
+	list-style-type: none;
+}
+li {
+	float: left;
+	padding-left: 55px;
+	width: auto;
+	padding-right: 10px;
+}
+.a1 {
+	color: white !important;
+	text-decoration: none;
+	font-size: 18px;
+}
+section .a1:hover {
+	color: #ff0066 !important;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 18px;
+}
+#menu {
+	padding-top: 12px;
+	background-color: gray;
+	height: 50px;
+
+}
+#boutique{
+	color: white !important;
+	padding-bottom: 25px;
+	font-family: fonten;
+	font-weight: bold;
+	font-size: 50px;
+	animation: pipika 2s infinite;
+}
+
+#contact {
+	margin-top: 20px;
+	padding-bottom: 25px;
+	border-radius: 5px;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+form {
+	padding-left: 30px;
+	padding-top: 30px;
+}
+
+td input {
+	width: 300px;
+	height: 30px;
+	border-radius: 5px;
+}
+
+td #button {
+	background-color: gray;
+	color: white;
+	width: 125px;
+	height: 30px;
+	border-color: grey;
+	border-radius: 5px; 
+}
+td #button:hover {
+	border-color: white;
+	color: gray;
+	background-color: white;
+}
+textarea {
+	width: 300px;
+	height: 100px;
+	border-radius: 5px;
+}
+#con {
+	padding-left: 100px;
+	padding-top: 30px;
+}
+#con a {
+ 	text-decoration: none;
+	color: white !important;
+}
+#con td {
+	padding-left: 10px;
+}	
+#articles2 {
+	color: gray;
+}
+#articles3 {
+	padding-top: 30px;
+	color: white;
+}
+#article a{
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center !important;
+
+}	
