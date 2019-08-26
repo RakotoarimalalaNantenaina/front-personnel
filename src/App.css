@@ -169,6 +169,7 @@ td {
     color: #d05c62;
     font-size: 25px;
 }
+
 #panierdiv {
     display: none;
 }
@@ -241,6 +242,7 @@ footer {
      padding: 70px;
      border-color: #d05c62;
      border-radius: 10px;
+     z-index: 1;
 }
 #bouttonx {
     font-weight: bold;
@@ -323,6 +325,9 @@ section .a1:hover {
 	background-color: gray;
 	height: 50px;
 
+}
+#div2 {
+    z-index: -1;
 }
 #boutique{
 	color: white !important;
