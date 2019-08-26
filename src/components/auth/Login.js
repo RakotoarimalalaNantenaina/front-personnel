@@ -30,13 +30,13 @@ class Login extends Component {
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/adminpanier");
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/adminpanier");
     }
 
     if (nextProps.errors) {
@@ -72,7 +72,7 @@ class Login extends Component {
         <MDBRow>
           <MDBCol md="12">
             <form noValidate onSubmit={this.onSubmit}>
-              <p className="h5 text-center mb-4" id="loginp">Connexion</p>
+              <p className="h5 text-center mb-4" id="loginp">Connexion du panier</p>
               <div className="grey-text">
                 <MDBInput
                   label="Votre adresse e-mail"
@@ -83,7 +83,6 @@ class Login extends Component {
                   id="email"
                   onChange={this.onChange}
                   value={this.state.email}
-                  // error={errors.email}
                   className={classnames("", {
                     invalid: errors.email || errors.emailnotfound
                   })}
@@ -100,7 +99,6 @@ class Login extends Component {
                   type="password"
                   onChange={this.onChange}
                   value={this.state.password}
-                  // error={errors.password}
                   id="password"
                   className={classnames("", {
                     invalid: errors.password || errors.passwordincorrect
@@ -112,9 +110,10 @@ class Login extends Component {
                 </span>
               </div>
               <div className="text-center">
-                <MDBBtn type="submit" id="bouton-connecter">Se Connecter</MDBBtn>
+                <MDBBtn type="submit" id="inscrire-btn">Se Connecter</MDBBtn>
               </div>
-            </form>
+            </form><br/>
+            <span>Si vous n'êtes pas encore de compte.Inscrivez-vous ici :</span> <Link to="/register" className="btn btn-primary" id="inscrire-btn">S'inscrire</Link><br/>
             Vers &nbsp; <Link to="/">Accueil</Link>
           </MDBCol>
         </MDBRow>

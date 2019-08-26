@@ -33,11 +33,7 @@ class Atelier extends Component {
                 console.log(error);
             })
     }
-    Inscrit(){
-        
-    }
-
-
+   
     Produit() {
         return <div className="container-fluid">
             <div className="row view-group" id="colonne">
@@ -70,7 +66,7 @@ class Atelier extends Component {
 
                                     <span class="float-right">
 
-                                        <button className="btn btn-primary"
+                                        {/* <button className="btn btn-primary"
                                             onClick={() => {
                                                 confirmAlert({
                                                     customUI: ({ onClose }) => {
@@ -112,7 +108,9 @@ class Atelier extends Component {
                                                     }
                                                 });
                                             }}
-                                            id="inscrire-btn">Ajouter au panier</button>
+                                            id="inscrire-btn">Ajouter au panier</button> */}
+
+                                        <a id="inscrire-btn" href="/login" className="btn btn-primary">Ajouter au panier</a>
 
                                     </span>
 

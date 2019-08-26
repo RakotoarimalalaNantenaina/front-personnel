@@ -23,7 +23,7 @@ class Register extends Component {
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/adminpanier");
     }
   }
 
@@ -45,7 +45,6 @@ class Register extends Component {
     const newUser = {
       name: this.state.name,
       lastname: this.state.lastname,
-      specialite: this.state.specialite,
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
@@ -66,7 +65,7 @@ class Register extends Component {
             <MDBRow>
               <MDBCol md="12">
                 <form noValidate onSubmit={this.onSubmit}>
-                  <p className="h5 text-center mb-4" id="loginp">S'inscrire</p>
+                  <p className="h5 text-center mb-4" id="loginp">Inscription de nouveau compte</p>
                   <div className="grey-text">
                     <MDBInput
                       label="Votre nom"
@@ -96,19 +95,6 @@ class Register extends Component {
                       required
                     />
 
-                    <MDBInput
-                      label="Votre specialité"
-                      icon="envelope"
-                      group
-                      onChange={this.onChange}
-                      value={this.state.specialite}
-                      id="specialite"
-                      type="text"
-                      className={classnames("", {
-                        invalid: errors.specialite
-                      })}
-                      required
-                    />
 
                     <MDBInput
                       label="Votre adresse e-mail"
@@ -158,10 +144,10 @@ class Register extends Component {
 
                   </div>
                   <div className="text-center">
-                    <MDBBtn type="submit" id="bouton-connecter">S'inscrire</MDBBtn>
+                    <MDBBtn type="submit" className="btn btn-primary" id="inscrire-btn">S'inscrire</MDBBtn>
                   </div><br />
                 </form>
-                <p>J'ai deja un compte sur l' AT-C &nbsp; <Link to="/login" id="linkseconnecter"> Se connecter</Link></p>
+                <p>J'ai deja un compte sur l' Album Malagasy &nbsp; : <Link to="/login" id="linkseconnecter"> se connecter au panier</Link></p>
               </MDBCol>
             </MDBRow>
           </div>

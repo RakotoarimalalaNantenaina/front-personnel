@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import Atelier from './../atelier/atelier';
 import Getatelier from './../atelier/getatelier'
 import { Link } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert'; 
@@ -129,8 +128,7 @@ class Dashboard extends Component {
 
                       <button id="li1"  className="btn btn-primary" onClick={()=>{
                           document.getElementById('ajoutercomponent').style.display = 'none'
-                          this.get()
-                        }} href="#"  id="bouttonajouter">listes de vos albums</button>
+                        }} id="bouttonajouter">listes de vos albums</button>
                   </li><br/>
                   <li className="nav-item active">
                     <Link to="/"><span id="btn-accueil" >Accueil</span></Link>
@@ -163,10 +161,10 @@ class Dashboard extends Component {
             <div>
          
         </div>
-    
+                        
 
-
-    <MDBRow>
+            
+    <MDBRow id="ajoutalbumtable">
           <MDBModal isOpen={this.state.modal1} toggle={this.toggle(1)}>
             <MDBModalHeader
               className="text-center"
@@ -228,12 +226,24 @@ class Dashboard extends Component {
                       required
                     />
                     <label className="btn btn-default btn-file" id="fichier">
-                     Image de l'album<input ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_produit"   required/>
+                     Image de l' album<input ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_produit"   required/>
                   </label>
                   </div>
                   <div className="text-center">
                   <div className="text-center mt-4">
-                <button className="btn btn-outline-warning" >
+                <button className="btn btn-outline-warning"  onClick={()=>{
+                      document.getElementById("ajoutalbumtable").style.display = "none"
+                  confirmAlert({
+                    customUI: () => {
+                      return (
+                        <div className='custom-ui'>
+                          <h1>Enregistrement De l'ajout de l'album</h1>
+                          <center></center><a href="/dashboard" id="okajout" className="btn btn-primary">OK</a>
+                        </div>
+                      );
+                    }
+                  });
+                }}>
                   Ajouter
                   <MDBIcon icon="paper-plane" className="ml-2" />
                 </button>
