@@ -15,8 +15,8 @@ class Accueil extends Component {
           <div className="text-white text-center rgba-stylish py-5 px-4">
             <div className="py-5">
               <h2 id="h2accueil">ALBUMS MALAGASY</h2>
-              <p className="mb-4 pb-2 px-md-5 mx-md-5"><span id="spanheader">Aux artistes,Avez-vous des albums de musique à publier??</span> 
-              <br/><br/>Des personnes qui veulent à acheter .
+              <p className="mb-4 pb-2 px-md-5 mx-md-5"><span id="spanheader">Avis aux artistes ,avez-vous des albums de musique à vendre ou à publier??</span> 
+              <br/><br/>Toutes genres d'albums Malagasy sont disponibles ici
               </p>
             </div>
           </div>
@@ -36,15 +36,15 @@ class Accueil extends Component {
 					<form>
 						<table>
 							<tr>
-								<td>Nom</td>
+								<td><span id="span1">Nom</span></td>
 								<td><input type="text" name=""/></td>
 							</tr>
 							<tr>
-								<td>E-mail</td>
+								<td><span id="span1">E-mail</span></td>
 								<td><input type="text" name=""/></td>
 							</tr>
 							<tr>
-								<td>Message</td>
+								<td> <span id="span1">Message</span></td>
 								<td><textarea></textarea></td>
 							</tr>
 							<tr>
@@ -59,7 +59,7 @@ class Accueil extends Component {
 						<table id="icone">
 							<tr>
 								<td><img src="home.png"/></td>
-								<td>Lot IVD 24 bis Shopping gasy</td>
+								<td><span id="span1">Lot IVD 24 bis Shopping gasy</span></td>
 							</tr>
 							<tr>
 								<td><img src="fb.png"/></td>
@@ -71,7 +71,7 @@ class Accueil extends Component {
 							</tr>
 							<tr>
 								<td><img src="phone.PNG"/></td>
-								<td>020 00 000 00</td>
+								<td><span id="span1">020 00 000 00</span></td>
 							</tr>
 							<tr>
 								<td><img src="mail.png"/></td>

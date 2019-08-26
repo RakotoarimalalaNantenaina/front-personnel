@@ -39,6 +39,9 @@
     padding-left: 100px;
     color: #4ca8ac !important;
 }
+#span1 {
+    color: white;
+}
 .thtab {
     color: #d05c62;
     font-weight: bold;
@@ -163,8 +166,11 @@ td {
     transform: scale(1.1); 
   }
 #loginp {
-    color: #f3671f;
+    color: #d05c62;
     font-size: 25px;
+}
+#panierdiv {
+    display: none;
 }
 #btn-modifier {
     background-color: #f3671f !important;

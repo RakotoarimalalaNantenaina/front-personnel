@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse } from "mdbreact";
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,MDBFormInline } from "mdbreact";
 class SideNavPage extends Component {
 
   state = {
@@ -45,8 +45,21 @@ class SideNavPage extends Component {
 
             </MDBNavbarNav>
             <MDBNavbarNav right>
+             
               <MDBNavItem>
-                <MDBNavLink to="/login" className="nav-header" >Rechercher</MDBNavLink>
+              <MDBFormInline waves>
+                        <div className="md-form my-0">
+                          <input
+                            className="form-control mr-sm-2"
+                            type="text"
+                            placeholder="Rechercher"
+                            aria-label="Search"
+                          />
+                        </div>
+                      </MDBFormInline>
+              </MDBNavItem>
+              <MDBNavItem>
+                <MDBNavLink to="/login" className="nav-header" >Connexion</MDBNavLink>
               </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>

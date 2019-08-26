@@ -114,7 +114,7 @@ handleUploadImage(ev) {
                      required
                    />
                    <label className="btn btn-default btn-file" id="fichier">
-                    Image de l'atelier<input ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_produit"   required/>
+                    Image de l'album<input ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_produit"   required/>
                  </label>
                  </div>
                  <div className="text-center">
