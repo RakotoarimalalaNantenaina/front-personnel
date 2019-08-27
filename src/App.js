@@ -12,6 +12,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import Vraieaccueil from "./components/Accueiloriginale/accueil";
 import Modifier from "./components/atelier/modifatelier";
 import Adminpanier from "./components/dashboard/adminpanier";
 
@@ -42,14 +43,16 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
-            <Route exact path="/" component={Accueil} />
+            <Route exact path="/" component={Vraieaccueil} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route  path="/albums" component={Accueil} />
+
            
             <Switch>
               <PrivateRoute exact path="/adminpanier" component={Adminpanier} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute path="/dashboard/atelier/:id" component={Modifier} />
+              <PrivateRoute path="/dashboard/album/:id" component={Modifier} />
             </Switch>
           </div>
         </Router>
