@@ -74,18 +74,9 @@ export default class Tableau extends Component {
                                     <td>{obj.prix}  Ar</td>
                                     <td>
                                         {/* boutton modification */}
-                                        <Link className="btn btn-primary" to={'/dashboard/atelier/' + obj._id}
+                                        <Link className="btn btn-primary" to={'/dashboard/album/' + obj._id}
 
                                             id="btn-modifier">Modifier</Link>
-
-                                        {/* boutton suppression
-                                    <button onClick={(e)=>{
-                                        e.preventDefault()
-                                        axios.get("http://localhost:8080/supprimer/"+obj._id)
-                                        .then()
-                                        .catch(err => console.log(err))
-                                    }} className="btn btn-danger">Supprimer</button> */}
-
 
                                         <button className="btn btn-danger" onClick={this.toggle(6)}>Supprimer</button>
 

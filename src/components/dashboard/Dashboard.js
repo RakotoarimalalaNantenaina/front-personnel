@@ -220,7 +220,7 @@ class Dashboard extends Component {
                     <MDBInput
                       label="Prix de l'album (Ar)"
                       group
-                      type="text"
+                      type="number"
                       validate
                       success="right" value={this.state.value} onChange={this.onChange}  name="prix"
                       required

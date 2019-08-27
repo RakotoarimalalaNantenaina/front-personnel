@@ -52,18 +52,38 @@ class Atelier extends Component {
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <p className="card-text"><strong><span id="description">Titre de l'album</span></strong>&nbsp;&nbsp; <div id="point">{user.titre}</div> </p>
-                                                <p className="card-text"><strong><span id="description">Description</span></strong>&nbsp;&nbsp; <div id="point">{user.description}</div> </p>
+                                                <div class="more">
+                                                    <p className="card-text"><strong><span id="description">Description</span></strong>&nbsp;&nbsp; <div id="point1">{user.description}</div> 
+                                                    <a className="more-text" href="#!" id="plusmoins">
+                                                        <span className="plus">voir plus déscription</span>
+                                                        <span className="moins" id="moinsmoins"></span>
+                                                    </a>
+                                                    <p className="hidetext">
+                                                        {user.description}
+                                                    </p>
+                                                     </p>
+                                                </div>                                                 
+                                               
                                             </div>
                                             <div className="col-md-6">
                                                 <p className="card-text"><strong><span id="description">Genre</span></strong>&nbsp;&nbsp; <div id="point">{user.genre}</div> </p>
                                                 <p className="card-text"><strong><span id="description">Date de publication</span></strong>&nbsp;&nbsp; <div id="point">{user.date}</div> </p>
                                             </div>
                                         </div><br/>
-                            
-                                    <span className="spanprix">
-                                        <strong>Prix: {user.prix} Ar</strong>
-                                    </span><br />
-
+                                    <div className="row"> 
+                                        <div className="col-md-6">
+                                            <span className="spanprix">
+                                                <strong>Prix: {user.prix} Ar</strong>
+                                            </span>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <span className="spanprix">
+                                            <strong>Artiste : {user.artiste}</strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    
                                     <span class="float-right">
 
                                         {/* <button className="btn btn-primary"

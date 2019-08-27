@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDBIcon,MDBCol,MDBInput,MDBCard, MDBCardBody} from "mdbreact";
 import { confirmAlert } from 'react-confirm-alert'; 
+import axios from 'axios';
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 class Modifatelier extends React.Component {
@@ -10,15 +11,33 @@ class Modifatelier extends React.Component {
         titre: '',
         description:'',
         date: '',
-        horaire: '',
-        duree: '',
-        place_dispo: '',
-        place_reserve: '',
+        genre: '',
         photo_produit:'',
         prix: '',
+        get_titre: '',
+        get_description: '',
+        get_date: '',
+        get_artiste:'',
+        get_genre: '',
+        get_prix: ''
     }
     this.onChange = this.onChange.bind(this)
     this.handleUploadImage = this.handleUploadImage.bind(this);
+}
+
+componentDidMount() {
+  axios.get('http://localhost:8080/'+this.props.match.params.id)
+      .then(response => {
+            // console.log("donné à modifier" , response.data)
+          this.setState({
+              titre: response.data.titre,
+              artiste: response.data.artiste,
+              description :  response.data.description,
+              date: response.data.date,
+              genre: response.data.genre,
+              prix: response.data.prix
+          })
+      });
 }
 
 onChange(event) {
@@ -45,8 +64,6 @@ handleUploadImage(ev) {
       
     response.json().then((body) => {
       this.setState({ image: `http://localhost:8080/atelier/${body.photo_produit}` });
-      console.log('ity ilay body. photo ovaina o :', body.photo_produit);
-
     });
   });
 }
@@ -69,7 +86,7 @@ handleUploadImage(ev) {
                      group
                      type="text"
                      validate
-                     success="right" value={this.state.value}  onChange={this.onChange} name="titre"
+                     success="right" value={this.state.titre}  onChange={this.onChange} name="titre"
                      required
                    />
                     <MDBInput
@@ -77,7 +94,7 @@ handleUploadImage(ev) {
                      group
                      type="text"
                      validate
-                     success="right" value={this.state.value} onChange={this.onChange}  name="artiste"
+                     success="right" value={this.state.artiste} onChange={this.onChange}  name="artiste"
                      required
                    />
                    <MDBInput
@@ -85,7 +102,7 @@ handleUploadImage(ev) {
                      group
                      type="text"
                      validate
-                     success="right" value={this.state.value} onChange={this.onChange} name="description"
+                     success="right" value={this.state.description} onChange={this.onChange} name="description"
                      required
                    />
                    <MDBInput
@@ -93,7 +110,7 @@ handleUploadImage(ev) {
                      group
                      type="date"
                      validate
-                     success="right" value={this.state.value} onChange={this.onChange} name="date"
+                     success="right" value={this.state.date} onChange={this.onChange} name="date"
                      required
                    />
                    <MDBInput
@@ -101,7 +118,7 @@ handleUploadImage(ev) {
                      group
                      type="text"
                      validate
-                     success="right" value={this.state.value} onChange={this.onChange}  name="genre"
+                     success="right" value={this.state.genre} onChange={this.onChange}  name="genre"
                      required
                    />
                     
@@ -110,9 +127,10 @@ handleUploadImage(ev) {
                      group
                      type="text"
                      validate
-                     success="right" value={this.state.value} onChange={this.onChange}  name="prix"
+                     success="right" value={this.state.prix} onChange={this.onChange}  name="prix"
                      required
                    />
+
                    <label className="btn btn-default btn-file" id="fichier">
                     Image de l'album<input ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_produit"   required/>
                  </label>
