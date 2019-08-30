@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from "./Header";
 import Atelier from "./Atelier"
+import {MDBFormInline } from "mdbreact";
 
 class Accueil extends Component {
   
@@ -16,15 +17,37 @@ class Accueil extends Component {
             <div className="py-5">
               <h2 id="h2accueil">ALBUMS MALAGASY</h2>
               <p className="mb-4 pb-2 px-md-5 mx-md-5"><span id="spanheader">Avis aux artistes ,avez-vous des albums de musique à vendre ou à publier??</span> 
-              <br/><br/>Toutes genres d'albums Malagasy sont disponibles ici
+              <br/><br/>Toutes genres d'albums Malagasy sont disponibles ici.
               </p>
             </div>
           </div>
         </div>
+				<center>
+				
+				</center>
+				{/* <div className="container">
+						<div className="row">
+							<div className="col-md-4"></div>
+								<div className="col-md-4"></div>
+								<div className="col-md-4">
+								<MDBFormInline >
+                        <div className="md-form my-0">
+                          <input
+                            className="form-control "
+                            type="text"
+                            placeholder="Rechercher des albums"
+                            aria-label="Search"
+                          /> 	<button className="btn btn-primary">Rechercher</button>
+                        </div>
+          				</MDBFormInline>
+								
+								</div>								
+						</div>
+				</div> */}
+			
         <Atelier/>
 
 
-       
 					
 		<div id="contact" style={{backgroundImage: 'url(' + urlimage + ')', 
                                                           backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>

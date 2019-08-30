@@ -80,8 +80,9 @@ class Dashboard extends Component {
                         <button id="li1"  className="btn btn-primary" onClick={()=>{
                           document.getElementById('ajoutercomponent').style.display = 'none'
                           this.get()
-                        }} href="#"  id="bouttonajouter">Votre panier</button><br/>
-                         <Link to="/" id="btn-accueil">Accueil</Link>
+                        }}  id="bouttonajouter">Votre panier</button><br/>
+                         <Link to="/" id="btn-accueil">Accueil</Link><br/>
+                         <Link to="/albums" id="btn-accueil">les Albums</Link>
                   </div>
                   </center>
               </nav>

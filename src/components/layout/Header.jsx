@@ -47,17 +47,9 @@ class SideNavPage extends Component {
             <MDBNavbarNav right>
              
               <MDBNavItem>
-              <MDBFormInline waves>
-                        <div className="md-form my-0">
-                          <input
-                            className="form-control mr-sm-2"
-                            type="text"
-                            placeholder="Rechercher"
-                            aria-label="Search"
-                          />
-                        </div>
-                      </MDBFormInline>
+              
               </MDBNavItem>
+              
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>

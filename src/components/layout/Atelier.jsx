@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class Atelier extends Component {
@@ -25,7 +24,7 @@ class Atelier extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/atelier')
+        axios.get('https://radiant-fortress-64926.herokuapp.com/atelier')
             .then(response => {
                 this.setState({ profil: response.data });
             })
@@ -44,7 +43,7 @@ class Atelier extends Component {
                         <div class="item col-xs-3 col-lg-3" id="carte">
 
                             <div className="card card-cascade narrower card-ecommerce">
-                                <img width="auto" id="imageproduit" height="230px" src={'http://localhost:8080/atelier/' + user.photo_produit} alt={user.photo_produit} />
+                                <img width="auto" id="imageproduit" height="230px" src={'https://radiant-fortress-64926.herokuapp.com/atelier/' + user.photo_produit} alt={user.photo_produit} />
 
                                 <div className="card-body card-body-cascade">
 
@@ -77,72 +76,44 @@ class Atelier extends Component {
                                             </span>
                                         </div>
                                         <div className="col-md-6">
-                                            <span className="spanprix">
-                                            <strong>Artiste : {user.artiste}</strong>
-                                            </span>
+                                            <div className="more1">
+                                                    <p className="card-text"><span id="spanprix"><strong>Artiste</strong></span>&nbsp;&nbsp;
+                                                    <a className="more-text" href="#!" id="plusmoins">
+                                                        <span className="plus" id="plusartiste">voir l'artiste</span>
+                                                        <span className="moins" id="moinsmoins"></span>
+                                                    </a>
+                                                    <p className="hidetext">
+                                                        {user.artiste}
+                                                    </p>
+                                                     </p>
+                                                </div> 
                                         </div>
                                     </div>
                                     <br />
                                     
-                                    <span class="float-right">
+                                    <span className="float-right">
 
-                                        {/* <button className="btn btn-primary"
-                                            onClick={() => {
-                                                confirmAlert({
-                                                    customUI: ({ onClose }) => {
-                                                        return (
-                                                            <div id="div1">
-
-                                                                <div className="row">
-                                                                    <div className="col-md-10"></div>
-                                                                    <div className="col-md-2"><button id="bouttonx" className="btn btn-danger" onClick={onClose}>X</button></div>
-                                                                </div>
-
-                                                                <h2 id="h2popups">Ajouter {user.titre} au panier </h2>
-                                                                
-                                                                <input required className="zonetext2 form-control" name="nom" onChange={this.onChange} value={this.state.value} placeholder="Entrer votre nom" /><br></br>
-                                                                <input required className="zonetext2 form-control" name="prenom" placeholder="Entre votre prénom" onChange={this.onChange} value={this.state.value} /><br></br>
-                                                                <input required className="zonetext2 form-control" name="email" placeholder="Entrer votre e-mail" onChange={this.onChange} value={this.state.value} /><br></br>
-                                                                <input required className="zonetext2 form-control" name="numtel" placeholder="Entre votre numero de téléphone" onChange={this.onChange} value={this.state.value} /><br/><br></br>
-                                                                <button
-                                                                    onClick={() => {
-                                                                        axios.post("http://localhost:8080/particulier/" + user._id, {
-                                                                            nom: this.state.nom,
-                                                                            prenom: this.state.prenom,
-                                                                            numtel: this.state.numtel,
-                                                                            email: this.state.email
-                                                                        }).then(res => {
-                                                                            axios.get("http://localhost:8080/atelier").then(res => {
-
-                                                                                this.setState({ profil: res.data })
-                                                                            })
-                                                                        })
-                                                                      onClose()
-                                                                    }}
-                                                                    className="btn btn-primary"     id="bouttonconfirmer" >
-                                                                   Confirmer
-                                                                        </button>
-                                                                <button onClick={onClose} id="bottonanuler" className="btn btn-secondary">Annuler</button>
-                                                            </div>
-                                                        );
-                                                    }
-                                                });
-                                            }}
-                                            id="inscrire-btn">Ajouter au panier</button> */}
-
-                                        <a id="inscrire-btn" href="/login" className="btn btn-primary">Ajouter au panier</a>
-
+                                        <a id="ajouterdepanier" href="/login" onClick={()=>{
+                                          
+                                            axios.post("https://radiant-fortress-64926.herokuapp.com/panier/" + user._id, {
+                                                titre: user.titre,
+                                                id_utilisateur: localStorage.getItem('id_user'),
+                                                description: user.description,
+                                                artiste: user.artiste,
+                                                date: user.date,
+                                                genre: user.genre,
+                                                prix: user.prix
+                                            })
+                                        }}
+                                     className="btn btn-primary"><img id="imagepanier" src="panier.jpg" alt="panier"/>&nbsp;Ajouter au panier</a>
                                     </span>
-
                                 </div>
                             </div>
-
                         </div>
-
                     ))
                 ) : (
                         <div>
-                            <h3 id="h3vide">Aucun Album Publié</h3>
+                            <h3 id="h3vide">Aucun album publié</h3>
                         </div>
                     )}
             </div>

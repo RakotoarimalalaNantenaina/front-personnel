@@ -51,12 +51,12 @@ class Dashboard extends Component {
     data.append('artiste',this.state.artiste);
     data.append('prix',this.state.prix);
   
-    fetch('http://localhost:8080/atelier', {
+    fetch('https://radiant-fortress-64926.herokuapp.com/atelier', {
       method: 'POST',
       body: data,
     }).then((response) => {
       response.json().then((body) => {
-        this.setState({ photo_produit: `http://localhost:8080/atelier/${body.photo_produit}` });
+        this.setState({ photo_produit: `https://radiant-fortress-64926.herokuapp.com/atelier/${body.photo_produit}` });
         console.log('ity ilay body.fil',body.photo_produit);
         
       });
@@ -82,15 +82,17 @@ class Dashboard extends Component {
       [modalNumber]: !this.state[modalNumber]
     });
   }
-  onLogoutClick = e => {
-    e.preventDefault();
-    this.props.logoutUser();
-  };
 
+  deconnnexion = () =>{
+    // localStorage.removeItem('username');
+    localStorage.setItem('username', "vide");
+
+    // console.log("local storage get deconnexion : ",localStorage.getItem("username"));
+    
+  }
 
   render() {
   
-    const { user } = this.props.auth;
 
     return (
       <div className="container-fluid">
@@ -101,12 +103,12 @@ class Dashboard extends Component {
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
-            <MDBNavbarNav left>
-
-            </MDBNavbarNav>
+           
             <MDBNavbarNav right>
               <MDBNavItem>
-                <MDBNavLink to="" onClick={this.onLogoutClick} className="nav-header" >Deconnexion</MDBNavLink>
+                <MDBNavLink to="/administration" onClick={()=>{
+                  this.deconnnexion()
+                }} className="nav-header" >Deconnexion</MDBNavLink>
               </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>
@@ -114,24 +116,24 @@ class Dashboard extends Component {
 
         <center>
         <div  id="ajoutercomponent"> 
-         <h3 id="h3header"> BIENVENUE SUR L ' ADMINISTRATION   {user.name.split(" ")[0]}</h3>
+         <h3 id="h3header"> BIENVENUE SUR L ' ADMINISTRATION   {localStorage.getItem('username')}  </h3>
           </div>
         </center>
       
                 <ul className="navbar-nav mr-auto" id="navbarmobile">
                   <li className="nav-item active">
                   <MDBBtn rounded onClick={this.toggle(1)} id="bouttonajouter">
-                         Ajouter nouveau produit
+                         Ajouter nouveau album
                       </MDBBtn>
                   </li>
                   <li className="nav-item active">
 
                       <button id="li1"  className="btn btn-primary" onClick={()=>{
-                          document.getElementById('ajoutercomponent').style.display = 'none'
-                        }} id="bouttonajouter">listes de vos albums</button>
+                          document.getElementById('ajoutercomponent').style.display = 'none'  }} id="bouttonajouter">listes de vos albums</button>
                   </li><br/>
                   <li className="nav-item active">
                     <Link to="/"><span id="btn-accueil" >Accueil</span></Link>
+                    <Link to="/albums"><span id="btn-accueil" >les albums</span></Link>
                   </li>
                  
                 </ul>
@@ -142,15 +144,17 @@ class Dashboard extends Component {
               <center>
                   <div className="sidebar-header">
                     <img src="logo.png" alt="logo" id="imagedash"/>
-                        
+                        <h3>{localStorage.getItem('username')}</h3>
                         <MDBBtn rounded onClick={this.toggle(1)} id="bouttonajouter">
-                         Ajouter nouveau produit
+                         Ajouter nouveau album
                       </MDBBtn>
                         <button id="li1"  className="btn btn-primary" onClick={()=>{
                           document.getElementById('ajoutercomponent').style.display = 'none'
+                          // document.getElementById('modifiercontent').style.display = 'none'
                           this.get()
-                        }} href="#"  id="bouttonajouter">listes de vos albums</button>
-                         <Link to="/" id="btn-accueil">Accueil</Link>
+                        }}  id="bouttonajouter">listes de vos albums</button>
+                         <Link to="/" id="btn-accueil">Accueil</Link><br/>
+                         <Link to="/albums"><span id="btn-accueil" >les albums publiés</span></Link>
 
                   </div>
                   </center>
@@ -253,15 +257,11 @@ class Dashboard extends Component {
             </MDBModalBody>
           </MDBModal>
         </MDBRow>
-
-
-
         <div className="row">
               <div className="col-md-2">
 
               </div>
               <div className="col-md-10">
-              
                 <Getatelier/>
               </div>
         </div>
