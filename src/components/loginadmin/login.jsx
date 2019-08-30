@@ -12,8 +12,6 @@ class Login extends Component {
             profil: [] ,
         }  
     }
-
-
       onSubmit = () => {  
 
         if (this.state.username==localStorage.getItem('username')  && this.state.password==localStorage.getItem('password')) {
@@ -24,16 +22,10 @@ class Login extends Component {
             document.getElementById("paragraphe").style.display = "block"
         }
       }
-
-     
-
     onChange = e => {
         this.setState({ [e.target.name]: e.target.value });
       };
-
-    
     componentDidMount() {
-       
         axios.get('https://radiant-fortress-64926.herokuapp.com/administration')
             .then(response => {
                 
@@ -48,12 +40,9 @@ class Login extends Component {
                 console.log(error);
             })
     }
-
   render() {
     return (
-    
             <div className="container-fluid">
-          
     <div className="row">
         <div className="col-md-4"></div>
         <div className="col-md-4" id="loginrow">
@@ -85,7 +74,6 @@ class Login extends Component {
                   type="password"
                   onChange={this.onChange}
                   value={this.state.password}
-              
                   name="password"
                   required
                 />
@@ -100,7 +88,6 @@ class Login extends Component {
         </div>
         <div className="col-md-4"></div>
     </div>
-       
         </div>
     
     );
