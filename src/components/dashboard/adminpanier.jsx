@@ -65,7 +65,6 @@ class Dashboard extends Component {
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>
-
         <center>
         <div  id="ajoutercomponent"> 
          <h3 id="h3header"> GESTION DU  PANIER</h3>
