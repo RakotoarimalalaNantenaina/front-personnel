@@ -225,7 +225,12 @@ td {
     #navbarmobile {
         display: block;
     }
+    #panierdiv {
+        display: block !important;
+    }
   }
+
+
 #linkseconnecter {
     color: #d05c62;
 }

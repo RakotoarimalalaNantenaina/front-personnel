@@ -66,6 +66,21 @@ class Dashboard extends Component {
           </MDBCollapse>
         </MDBNavbar>
 
+
+        {/* <ul className="navbar-nav" id="navbarmobile">
+                 
+                  <li className="nav-item active">
+
+                      <button id="li1"  className="btn btn-primary" onClick={()=>{
+                          document.getElementById('ajoutercomponent').style.display = 'none'  }} id="bouttonajouter">Voir votre panier</button>
+                  </li><br/>
+                  <li className="nav-item active">
+                    <Link to="/"><span id="btn-accueil" >Accueil</span></Link>
+                    <Link to="/albums"><span id="btn-accueil" >les albums</span></Link>
+                  </li>
+        </ul> */}
+
+
         <center>
         <div  id="ajoutercomponent"> 
          <h3 id="h3header"> GESTION DU  PANIER</h3>
