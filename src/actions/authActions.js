@@ -7,7 +7,7 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING,DELETE_ITEM } from "./types"
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
-    .post("http://localhost:8080/api/users/register", userData)
+    .post("https://radiant-fortress-64926.herokuapp.com/api/users/register", userData)
     .then(res => history.push("/login"))
     .catch(err =>
       dispatch({
@@ -20,10 +20,9 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
-    .post("http://localhost:8080/api/users/login", userData)
+    .post("https://radiant-fortress-64926.herokuapp.com/api/users/login", userData)
     .then(res => {
-      // Save to localStorage
-console.log('res', res);
+   
 
       // Set token to localStorage
       const { token } = res.data;
@@ -70,7 +69,7 @@ export const logoutUser = () => dispatch => {
 };
 
 export const deleteItem = id => dispatch => {
-  axios.delete(`http://localhost:8080/atelier/${id}`).then(res =>
+  axios.delete(`https://radiant-fortress-64926.herokuapp.com/atelier/${id}`).then(res =>
     dispatch({
       type: DELETE_ITEM,
       payload: id

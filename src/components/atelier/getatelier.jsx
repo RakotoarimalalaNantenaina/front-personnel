@@ -15,16 +15,10 @@ export default class Tableau extends Component {
 
     }
     componentDidMount() {
-        var test = []
-        axios.get('http://localhost:8080/atelier')
+       
+        axios.get('https://radiant-fortress-64926.herokuapp.com/atelier')
             .then(response => {
-                for (let i = 0; i < response.data.length; i++) {
-                    if (response.data[i].id_user == localStorage.getItem('id_user')) {
-                        test.push(response.data[i])
-                    }
-                }
-                // console.log('produit tableau :', response.data)
-                this.setState({ profil: test });
+                this.setState({ profil: response.data });
             })
             .catch(function (error) {
                 console.log(error);
@@ -65,7 +59,7 @@ export default class Tableau extends Component {
                         {
                             (this.state.profil.length > 0) ? (this.state.profil.map((obj) => {
                                 return <tr key={obj._id}>
-                                    <td><img id="imagetab" width="100px" height="90px" src={'http://localhost:8080/atelier/' + obj.photo_produit} alt={obj.photo_produit} /></td>
+                                    <td><img id="imagetab" width="100px" height="90px" src={'https://radiant-fortress-64926.herokuapp.com/atelier/' + obj.photo_produit} alt={obj.photo_produit} /></td>
                                     <td>{obj.titre}</td>
                                     <td>{obj.artiste}</td>
                                     <td>{obj.description}</td>
@@ -74,7 +68,9 @@ export default class Tableau extends Component {
                                     <td>{obj.prix}  Ar</td>
                                     <td>
                                         {/* boutton modification */}
-                                        <Link className="btn btn-primary" to={'/dashboard/album/' + obj._id}
+                                        <Link className="btn btn-primary" onClick={()=>{
+                                            document.getElementById("listecomponent").style.display = "none"
+                                        }} to={'/dashboard/album/' + obj._id}
 
                                             id="btn-modifier">Modifier</Link>
 
@@ -105,7 +101,7 @@ export default class Tableau extends Component {
                                                 <MDBModalFooter className="justify-content-center">
                                                     <MDBBtn color="danger" onClick={this.toggle(6)} onClick={(e)=>{
                                                             e.preventDefault()
-                                                            axios.get("http://localhost:8080/supprimer/"+obj._id)
+                                                            axios.get("https://radiant-fortress-64926.herokuapp.com/supprimer/"+obj._id)
                                                             .then()
                                                             .catch(err => console.log(err))
 
@@ -136,8 +132,8 @@ export default class Tableau extends Component {
 
                                         {obj.valid == true ? (<button id="bottondesactivez" className="btn btn-success" onClick={(e) => {
                                             e.preventDefault()
-                                            axios.get("http://localhost:8080/masqueratelier/" + obj._id).then(res => {
-                                                axios.get('http://localhost:8080/atelier')
+                                            axios.get("https://radiant-fortress-64926.herokuapp.com/masqueratelier/" + obj._id).then(res => {
+                                                axios.get('https://radiant-fortress-64926.herokuapp.com/atelier')
                                                     .then(response => {
                                                         var test = []
                                                         for (let i = 0; i < response.data.length; i++) {
@@ -145,18 +141,16 @@ export default class Tableau extends Component {
                                                                 test.push(response.data[i])
                                                             }
                                                         }
-                                                        console.log('produit tableau :', response.data)
                                                         this.setState({ profil: test });
                                                     })
                                                     .catch(function (error) {
                                                         console.log(error);
                                                     })
-                                                console.log(res.data)
                                             })
                                         }}><i class="glyphicon glyphicon-minus-sign"></i>Masquer</button>) : (<button id="visual" onClick={(e) => {
                                             e.preventDefault()
-                                            axios.get("http://localhost:8080/afficheatelier/" + obj._id).then(res => {
-                                                axios.get('http://localhost:8080/atelier')
+                                            axios.get("https://radiant-fortress-64926.herokuapp.com/afficheatelier/" + obj._id).then(res => {
+                                                axios.get('https://radiant-fortress-64926.herokuapp.com/atelier')
                                                     .then(response => {
                                                         var test = []
                                                         for (let i = 0; i < response.data.length; i++) {
@@ -164,7 +158,6 @@ export default class Tableau extends Component {
                                                                 test.push(response.data[i])
                                                             }
                                                         }
-                                                        console.log('produit tableau :', response.data)
                                                         this.setState({ profil: test });
                                                     })
                                                     .catch(function (error) {

@@ -15,6 +15,8 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Vraieaccueil from "./components/Accueiloriginale/accueil";
 import Modifier from "./components/atelier/modifatelier";
 import Adminpanier from "./components/dashboard/adminpanier";
+import Panier from "./components/dashboard/panier"
+import Admin from './components/loginadmin/login'
 
 import "./App.css";
 
@@ -47,13 +49,15 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route  path="/albums" component={Accueil} />
+            <Route  path="/administration" component={Admin} />
+            <Route  path="/panier/:_id" component={Panier} />
+            <Route  path="/dashboard" component={Dashboard} />
+            <Route path="/dashboard/album/:id" component={Modifier} />
 
-           
             <Switch>
               <PrivateRoute exact path="/adminpanier" component={Adminpanier} />
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute path="/dashboard/album/:id" component={Modifier} />
             </Switch>
+            
           </div>
         </Router>
       </Provider>
