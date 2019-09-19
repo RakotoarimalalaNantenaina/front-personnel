@@ -40,7 +40,7 @@ class Atelier extends Component {
 
                     this.state.profil.filter(us=>us.valid==true).map(user => (
 
-                        <div class="item col-xs-3 col-lg-3" id="carte">
+                        <div class="item col-md-4" id="carte">
 
                             <div className="card card-cascade narrower card-ecommerce">
                                 <img width="auto" id="imageproduit" height="230px" src={'https://radiant-fortress-64926.herokuapp.com/atelier/' + user.photo_produit} alt={user.photo_produit} />
